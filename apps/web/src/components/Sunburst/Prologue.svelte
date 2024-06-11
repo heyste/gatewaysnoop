@@ -24,8 +24,11 @@
 
 {#if release}
   <SectionHeader title={""}>
-    <h2>{release} Testing Coverage
-      <button on:click={() => releaseSwitch = true}>switch release</button>
+    <h2>Gateway API v1.0.0
+      <button on:click={() => releaseSwitch = true}>switch version</button>
+    </h2>
+    <h2>Cilium v1.15.4 Testing Coverage
+      <button on:click={() => releaseSwitch = true}>switch implementation</button>
     </h2>
     {#if releaseSwitch}
       <ul class='releases'>
