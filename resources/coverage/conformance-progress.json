@@ -1,0 +1,290 @@
+[
+    {
+        "total": {
+            "new": 7,
+            "tested": 0,
+            "endpoints": 219,
+            "new_tested": 0,
+            "old_tested": 0,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.8.0"
+    },
+    {
+        "total": {
+            "new": 63,
+            "tested": 55,
+            "endpoints": 282,
+            "new_tested": 11,
+            "old_tested": 44,
+            "new_with_tests": 11,
+            "still_untested": 0
+        },
+        "release": "1.9.0"
+    },
+    {
+        "total": {
+            "new": 9,
+            "tested": 64,
+            "endpoints": 291,
+            "new_tested": 0,
+            "old_tested": 9,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.10.0"
+    },
+    {
+        "total": {
+            "new": 2,
+            "tested": 65,
+            "endpoints": 293,
+            "new_tested": 0,
+            "old_tested": 1,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.11.0"
+    },
+    {
+        "total": {
+            "new": 1,
+            "tested": 67,
+            "endpoints": 294,
+            "new_tested": 0,
+            "old_tested": 2,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.12.0"
+    },
+    {
+        "total": {
+            "new": 10,
+            "tested": 68,
+            "endpoints": 304,
+            "new_tested": 0,
+            "old_tested": 1,
+            "new_with_tests": 0,
+            "still_untested": 3
+        },
+        "release": "1.13.0"
+    },
+    {
+        "total": {
+            "new": 18,
+            "tested": 68,
+            "endpoints": 322,
+            "new_tested": 0,
+            "old_tested": 0,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.14.0"
+    },
+    {
+        "total": {
+            "new": 0,
+            "tested": 75,
+            "endpoints": 322,
+            "new_tested": 0,
+            "old_tested": 7,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.15.0"
+    },
+    {
+        "total": {
+            "new": 28,
+            "tested": 112,
+            "endpoints": 350,
+            "new_tested": 26,
+            "old_tested": 11,
+            "new_with_tests": 26,
+            "still_untested": 1
+        },
+        "release": "1.16.0"
+    },
+    {
+        "total": {
+            "new": 8,
+            "tested": 120,
+            "endpoints": 358,
+            "new_tested": 0,
+            "old_tested": 8,
+            "new_with_tests": 0,
+            "still_untested": 7
+        },
+        "release": "1.17.0"
+    },
+    {
+        "total": {
+            "new": 7,
+            "tested": 130,
+            "endpoints": 365,
+            "new_tested": 0,
+            "old_tested": 10,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.18.0"
+    },
+    {
+        "total": {
+            "new": 41,
+            "tested": 211,
+            "endpoints": 406,
+            "new_tested": 40,
+            "old_tested": 41,
+            "new_with_tests": 40,
+            "still_untested": 0
+        },
+        "release": "1.19.0"
+    },
+    {
+        "total": {
+            "new": 8,
+            "tested": 239,
+            "endpoints": 414,
+            "new_tested": 8,
+            "old_tested": 20,
+            "new_with_tests": 8,
+            "still_untested": 0
+        },
+        "release": "1.20.0"
+    },
+    {
+        "total": {
+            "new": 35,
+            "tested": 301,
+            "endpoints": 449,
+            "new_tested": 31,
+            "old_tested": 31,
+            "new_with_tests": 31,
+            "still_untested": 0
+        },
+        "release": "1.21.0"
+    },
+    {
+        "total": {
+            "new": 0,
+            "tested": 318,
+            "endpoints": 449,
+            "new_tested": 0,
+            "old_tested": 17,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.22.0"
+    },
+    {
+        "total": {
+            "new": 2,
+            "tested": 319,
+            "endpoints": 451,
+            "new_tested": 1,
+            "old_tested": 0,
+            "new_with_tests": 1,
+            "still_untested": 0
+        },
+        "release": "1.23.0"
+    },
+    {
+        "total": {
+            "new": 8,
+            "tested": 344,
+            "endpoints": 459,
+            "new_tested": 8,
+            "old_tested": 17,
+            "new_with_tests": 8,
+            "still_untested": 0
+        },
+        "release": "1.24.0"
+    },
+    {
+        "total": {
+            "new": 0,
+            "tested": 368,
+            "endpoints": 459,
+            "new_tested": 0,
+            "old_tested": 24,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.25.0"
+    },
+    {
+        "total": {
+            "new": 0,
+            "tested": 379,
+            "endpoints": 459,
+            "new_tested": 0,
+            "old_tested": 11,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.26.0"
+    },
+    {
+        "total": {
+            "new": 0,
+            "tested": 392,
+            "endpoints": 459,
+            "new_tested": 0,
+            "old_tested": 13,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.27.0"
+    },
+    {
+        "total": {
+            "new": 0,
+            "tested": 413,
+            "endpoints": 459,
+            "new_tested": 0,
+            "old_tested": 21,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.28.0"
+    },
+    {
+        "total": {
+            "new": 21,
+            "tested": 460,
+            "endpoints": 480,
+            "new_tested": 21,
+            "old_tested": 26,
+            "new_with_tests": 21,
+            "still_untested": 0
+        },
+        "release": "1.29.0"
+    },
+    {
+        "total": {
+            "new": 17,
+            "tested": 484,
+            "endpoints": 497,
+            "new_tested": 17,
+            "old_tested": 7,
+            "new_with_tests": 17,
+            "still_untested": 0
+        },
+        "release": "1.30.0"
+    },
+    {
+        "total": {
+            "new": 0,
+            "tested": 484,
+            "endpoints": 497,
+            "new_tested": 0,
+            "old_tested": 0,
+            "new_with_tests": 0,
+            "still_untested": 0
+        },
+        "release": "1.31.0"
+    }
+]
