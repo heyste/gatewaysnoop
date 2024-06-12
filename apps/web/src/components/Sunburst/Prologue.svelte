@@ -6,6 +6,11 @@
 
  const SPYGLASS_URL = 'https://prow.k8s.io/view/gcs/kubernetes-jenkins/logs'
  let releaseSwitch = false;
+ let versionSwitch = false;
+ let implementationSwitch = false;
+
+ let gatewayapiVersions = ['1.0.0', '1.1.0'];
+ let implementations = ['cilium', 'contour', 'istio'];
 
  $: ({
    release,
@@ -25,15 +30,22 @@
 {#if release}
   <SectionHeader title={""}>
     <h2>Gateway API v1.0.0
-      <button on:click={() => releaseSwitch = true}>switch version</button>
+      <button on:click={() => versionSwitch = true}>switch version</button>
     </h2>
-    <h2>Cilium v1.15.4 Testing Coverage
-      <button on:click={() => releaseSwitch = true}>switch implementation</button>
-    </h2>
-    {#if releaseSwitch}
+    {#if versionSwitch}
       <ul class='releases'>
-      {#each $versions as version}
-        <li><a href={'/'+version+'/'} on:click={() => releaseSwitch = false}>{version}</a></li>
+      {#each gatewayapiVersions as gatewayapiVersion}
+        <li><a href={'/v'+gatewayapiVersion+'/'} on:click={() => versionSwitch = false}>{gatewayapiVersion}</a></li>
+      {/each}
+      </ul>
+    {/if}
+    <h2>Cilium v1.15.4 Testing Coverage
+      <button on:click={() => implementationSwitch = true}>switch implementation</button>
+    </h2>
+    {#if implementationSwitch}
+      <ul class='releases'>
+      {#each implementations as implementation}
+        <li><a href={'/implementation/'+implementation+'/'} on:click={() => implementationSwitch = false}>{implementation}</a></li>
       {/each}
       </ul>
     {:else}
