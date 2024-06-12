@@ -9,8 +9,21 @@
  let versionSwitch = false;
  let implementationSwitch = false;
 
- let gatewayapiVersions = ['1.0.0', '1.1.0'];
- let implementations = ['cilium', 'contour', 'istio'];
+ function capitalize(str) {
+   return str.replace(/\b\w/, function(char) {
+     return char.toUpperCase();
+   });
+ }
+
+ let gatewayapiVersions = ['v1.0.0', 'v1.1.0'];
+ export const implementations = [
+    {name: 'cilium', version: 'v1.15.6', latestGatewayAPIVersion: 'v1.0.0'},
+    {name: 'contour', version: 'v1.29.0', latestGatewayAPIVersion: 'v1.0.0'},
+    {name: 'istio', version: 'v1.22.1', latestGatewayAPIVersion: 'v1.1.0'}
+ ];
+
+ let currentImplementation = implementations[0]
+ let currentGatewayAPIVersion = gatewayapiVersions[0]
 
  $: ({
    release,
@@ -29,7 +42,7 @@
 
 {#if release}
   <SectionHeader title={""}>
-    <h2>Gateway API v1.0.0
+    <h2>Gateway API {currentGatewayAPIVersion}
       <button on:click={() => versionSwitch = true}>switch version</button>
     </h2>
     {#if versionSwitch}
@@ -39,13 +52,13 @@
       {/each}
       </ul>
     {/if}
-    <h2>Cilium v1.15.4 Testing Coverage
+    <h2>{capitalize(currentImplementation.name)} {currentImplementation.version} Testing Coverage
       <button on:click={() => implementationSwitch = true}>switch implementation</button>
     </h2>
     {#if implementationSwitch}
       <ul class='releases'>
       {#each implementations as implementation}
-        <li><a href={'/implementation/'+implementation+'/'} on:click={() => implementationSwitch = false}>{implementation}</a></li>
+        <li><a href={'/implementation/'+implementation.name+'/'} on:click={() => implementationSwitch = false}>{capitalize(implementation.name)}</a></li>
       {/each}
       </ul>
     {:else}
