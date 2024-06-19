@@ -49,12 +49,21 @@
 
  afterUpdate(async() => {
      if ($releases && isEmpty($releases)) {
+
+       console.log(" ---------------------------------------------------- ");
+       let rawReleasesFromYaml = await fetch(`${RELEASES_URL}/releases.yaml`)
+         .then(res => res.blob())
+         .then(blob => blob.text())
+         .then(yamlString => yaml.load(yamlString))
+       console.log("Debug: 'rawReleasesFromYaml' -> ", rawReleasesFromYaml);
+
        let releasesFromYaml = await fetch(`${RELEASES_URL}/releases.yaml`)
          .then(res => res.blob())
          .then(blob => blob.text())
          .then(yamlString => yaml.load(yamlString))
          .then(releases => releases.filter(({version}) => gte(version, EARLIEST_VERSION)))
 
+       console.log("Debug: 'releasesFromYaml' -> ", releasesFromYaml);
        let releasesData = await releaseJsonExists(releasesFromYaml)
          .then(releases => {
            return mapValues(groupBy(releases, 'version'),
@@ -121,6 +130,10 @@
              .then(res=>res.json());
          olderNewEndpointsRaw.set(older);
      }
+
+     console.log("Debug: '$activeRelease' => ", $activeRelease);
+     console.log(" ------------------------------------------------------ ");
+
  });
 </script>
 

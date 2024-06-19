@@ -1,3 +1,4 @@
+import {config} from 'dotenv';
 import svelte from 'rollup-plugin-svelte';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -64,6 +65,12 @@ export default {
 		commonjs(),
 		json(),
 		replace({
+			"Load & log .env": console.log(config()) && true,
+			__app: JSON.stringify({
+				env: {
+					RELEASE_SITE: process.env.RELEASE_SITE,
+				}
+			}),
 			'process.env.BRANCH': JSON.stringify(branch),
 			'process.env.COMMIT': JSON.stringify(commit),
 			'process.env.HEAD': JSON.stringify(head)
