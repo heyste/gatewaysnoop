@@ -1,0 +1,12 @@
+- release: 1.1019110.0
+  name: "istio"
+  version: "v1.22.1"
+- release: 1.1019100.0
+  name: "istio"
+  version: "v1.22.0"
+- release: 1.1009100.0
+  name: "contour"
+  version: "v1.29.0"
+- release: 1.1008100.0
+  name: "cilium"
+  version: "v1.15.4"

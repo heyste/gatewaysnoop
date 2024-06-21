@@ -1,0 +1,6 @@
+- version: "v1.0.0"
+  releaseDate: "2024-02-06"
+  releaseURL: "https://github.com/kubernetes-sigs/gateway-api/tree/release-1.0"
+- version: "v1.1.0"
+  releaseDate: "2024-05-22"
+  releaseURL: "https://github.com/kubernetes-sigs/gateway-api/tree/release-1.1"

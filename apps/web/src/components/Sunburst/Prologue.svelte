@@ -2,7 +2,7 @@
  import dayjs from 'dayjs';
  import { takeRight } from 'lodash-es';
  import SectionHeader from '../SectionHeader.svelte';
- import { activeRelease, releases, versions } from '../../store';
+ import { activeRelease, releases, versions, gatewayapis, implementations } from '../../store';
 
  const SPYGLASS_URL = 'https://prow.k8s.io/view/gcs/kubernetes-jenkins/logs'
  let releaseSwitch = false;
@@ -15,15 +15,6 @@
    });
  }
 
- let gatewayapiVersions = ['v1.0.0', 'v1.1.0'];
- export const implementations = [
-    {name: 'cilium', version: 'v1.15.6', latestGatewayAPIVersion: 'v1.0.0'},
-    {name: 'contour', version: 'v1.29.0', latestGatewayAPIVersion: 'v1.0.0'},
-    {name: 'istio', version: 'v1.22.1', latestGatewayAPIVersion: 'v1.1.0'}
- ];
-
- let currentImplementation = implementations[0]
- let currentGatewayAPIVersion = gatewayapiVersions[0]
 
  $: ({
    release,
@@ -38,17 +29,27 @@
    return numbers[Number(num)];
  }
 
+ let currentRelease = $activeRelease.release;
+
+ function findRelease(implementation) {
+   return implementation.release === currentRelease;
+ }
+
+ let index = $implementations.findIndex(findRelease);
+ let currentImplementation = $implementations[index];
+ let gatewayAPIVersion = $gatewayapis[0].version;
+
 </script>
 
 {#if release}
   <SectionHeader title={""}>
-    <h2>Gateway API {currentGatewayAPIVersion}
+    <h2>Gateway API {gatewayAPIVersion}
       <button on:click={() => versionSwitch = true}>switch version</button>
     </h2>
     {#if versionSwitch}
       <ul class='releases'>
-      {#each gatewayapiVersions as gatewayapiVersion}
-        <li><a href={'/v'+gatewayapiVersion+'/'} on:click={() => versionSwitch = false}>{gatewayapiVersion}</a></li>
+      {#each $gatewayapis as gatewayapi}
+        <li><a href={'/gatewayapi/'+gatewayapi.version} on:click={() => versionSwitch = false}>{gatewayapi.version}</a></li>
       {/each}
       </ul>
     {/if}
@@ -57,8 +58,8 @@
     </h2>
     {#if implementationSwitch}
       <ul class='releases'>
-      {#each implementations as implementation}
-        <li><a href={'/implementation/'+implementation.name+'/'} on:click={() => implementationSwitch = false}>{capitalize(implementation.name)}</a></li>
+      {#each $implementations as current}
+        <li><a href={'/'+current.release+'/'} on:click={() => implementationSwitch = false}>{capitalize(current.name)} {current.version}</a></li>
       {/each}
       </ul>
     {:else}
