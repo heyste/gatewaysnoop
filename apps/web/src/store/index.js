@@ -476,3 +476,11 @@ export const olderNewEndpoints = derived(
 
 export const implementations = writable([]);
 export const gatewayapis = writable([]);
+
+implementations.subscribe((value) => {
+	console.log("implementations: ", value);
+});
+
+gatewayapis.subscribe((value) => {
+	console.log("gatewayapis: ", value);
+});
