@@ -56,15 +56,13 @@
          .then(res => res.blob())
          .then(blob => blob.text())
          .then(yamlString => yaml.load(yamlString))
-       $gatewayapis = gatewayapisFromYaml;
-       console.log("gatewayapis: ", $gatewayapis);
+       gatewayapis.update((val) => gatewayapisFromYaml);
 
        let implementationsFromYaml = await fetch(`${RELEASES_URL}/implementations.yaml`)
          .then(res => res.blob())
          .then(blob => blob.text())
          .then(yamlString => yaml.load(yamlString))
-       $implementations = implementationsFromYaml;
-       console.log("implementations: ", $implementations);
+       implementations.update((val) => implementationsFromYaml);
 
        let releasesFromYaml = await fetch(`${RELEASES_URL}/releases.yaml`)
          .then(res => res.blob())
