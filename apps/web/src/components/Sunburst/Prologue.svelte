@@ -59,7 +59,7 @@
     {#if implementationSwitch}
       <ul class='releases'>
       {#each $implementations as current}
-        <li><a href={'/'+current.release+'/'} on:click={() => implementationSwitch = false}>{capitalize(current.name)} {current.version}</a></li>
+        <li><a rel="external" href={'/'+current.release+'/'} on:click={() => implementationSwitch = false}>{capitalize(current.name)} {current.version}</a></li>
       {/each}
       </ul>
     {:else}
