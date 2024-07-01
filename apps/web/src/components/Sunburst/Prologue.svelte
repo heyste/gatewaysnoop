@@ -31,14 +31,28 @@
 
  let currentRelease = $activeRelease.release;
 
- function findRelease(implementation) {
-   return implementation.release === currentRelease;
+ function locateReleaseImplementation(implementations, release) {
+
+   for (const implementation of implementations) {
+     let result = [];
+
+     for (const index of implementation.results) {
+        if (index.release == release) {
+          result = [implementation, index];
+          break;
+        }
+     }
+     if (result.length > 0) {
+       return result;
+     }
+   }
  }
 
- let index = $implementations.findIndex(findRelease);
- let currentImplementation = $implementations[index];
- let gatewayAPIVersion = $gatewayapis[0].version;
-
+ let currentImplementation = locateReleaseImplementation($implementations, currentRelease);
+ let project = currentImplementation[0].project;
+ let url = currentImplementation[0].url;
+ let gatewayAPIVersion = currentImplementation[1].gatewayapi;
+ let version = currentImplementation[1].version;
 </script>
 
 {#if release}
@@ -48,18 +62,18 @@
     </h2>
     {#if versionSwitch}
       <ul class='releases'>
-      {#each $gatewayapis as gatewayapi}
-        <li><a href={'/gatewayapi/'+gatewayapi.version} on:click={() => versionSwitch = false}>{gatewayapi.version}</a></li>
+      {#each currentImplementation[0].results as result}
+        <li><a rel="external" href={'/'+result.release+'/'} on:click={() => versionSwitch = false}>{result.gatewayapi}</a></li>
       {/each}
       </ul>
     {/if}
-    <h2>{capitalize(currentImplementation.name)} {currentImplementation.version} Testing Coverage
+    <h2><a target="_blank" href={url}>{capitalize(project)}</a> {version} Testing Coverage
       <button on:click={() => implementationSwitch = true}>switch implementation</button>
     </h2>
     {#if implementationSwitch}
       <ul class='releases'>
       {#each $implementations as current}
-        <li><a rel="external" href={'/'+current.release+'/'} on:click={() => implementationSwitch = false}>{capitalize(current.name)} {current.version}</a></li>
+        <li><a rel="external" href={'/'+current.results[0].release+'/'} on:click={() => implementationSwitch = false}>{capitalize(current.project)}</a></li>
       {/each}
       </ul>
     {:else}
