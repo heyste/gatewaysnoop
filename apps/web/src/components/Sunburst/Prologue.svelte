@@ -53,12 +53,15 @@
  let url = currentImplementation[0].url;
  let gatewayAPIVersion = currentImplementation[1].gatewayapi;
  let version = currentImplementation[1].version;
+ let gatewayAPICount = currentImplementation[0].results.length;
 </script>
 
 {#if release}
   <SectionHeader title={""}>
     <h2>Gateway API {gatewayAPIVersion}
-      <button on:click={() => versionSwitch = true}>switch version</button>
+      {#if gatewayAPICount > 1}
+        <button on:click={() => versionSwitch = true}>switch version</button>
+      {/if}
     </h2>
     {#if versionSwitch}
       <ul class='releases'>
