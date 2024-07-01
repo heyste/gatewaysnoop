@@ -2,7 +2,7 @@
  import dayjs from 'dayjs';
  import { takeRight } from 'lodash-es';
  import SectionHeader from '../SectionHeader.svelte';
- import { activeRelease, releases, versions, gatewayapis, implementations } from '../../store';
+ import { activeRelease, releases, versions, implementations } from '../../store';
 
  const SPYGLASS_URL = 'https://prow.k8s.io/view/gcs/kubernetes-jenkins/logs'
  let releaseSwitch = false;

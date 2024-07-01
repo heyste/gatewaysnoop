@@ -27,7 +27,6 @@
    olderNewEndpointsRaw,
    previousVersion,
    releases,
-   gatewayapis,
    implementations
  } from '../store';
  import {
@@ -51,12 +50,6 @@
 
  afterUpdate(async() => {
      if ($releases && isEmpty($releases)) {
-
-       let gatewayapisFromYaml = await fetch(`${RELEASES_URL}/gatewayapis.yaml`)
-         .then(res => res.blob())
-         .then(blob => blob.text())
-         .then(yamlString => yaml.load(yamlString))
-       gatewayapis.update((val) => gatewayapisFromYaml);
 
        let implementationsFromYaml = await fetch(`${RELEASES_URL}/implementations.yaml`)
          .then(res => res.blob())
