@@ -80,19 +80,19 @@
       {/each}
       </ul>
     {:else}
-      <em>Data comes from {prettyPrintNumber(sources.length)} e2e test suite {#if sources.length > 1}runs{:else}run{/if} from {date}:</em>
+      <em>Data comes from {prettyPrintNumber(sources.length)} gateway-api conformance test suite {#if sources.length > 1}runs{:else}run{/if} from {date}:</em>
         <ul class='sources'>
           {#each sources as source}
             <li>
-            <a href="{source}" title="spyglass link" target="_blank" rel="noreferrer noopener">
+            <a href="{source}" target="_blank" rel="noreferrer noopener">
               {takeRight(source.split('/'), 2).join('/')}
             </a>
             </li>
           {/each}
         </ul>
     {/if}
-    <p>This sunburst shows the testing coverage for the Kubernetes API, based on
-    auditlog data pulled from e2e test runs. The endpoints are organized by
+    <p>This sunburst shows the testing coverage for the Gateway-API, based on
+    auditlog data pulled from conformance test runs. The endpoints are organized by
     level (alpha, beta, or stable), then category. The color of an endpoint
     indicates its level of coverage. Gray means no test coverage, faded coloring
     means its tested but not conformance tested, solid coloring means its tested

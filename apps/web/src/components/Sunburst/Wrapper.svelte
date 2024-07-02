@@ -11,7 +11,6 @@
   <Breadcrumb />
   <Graph />
   <Stats />
-  <ConformanceToggle />
 </section>
 
 <style>
